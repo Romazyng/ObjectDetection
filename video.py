@@ -1,20 +1,17 @@
-from tkinter import *
 from tkinter import filedialog
 import numpy as np
 import cv2
-import fileinput
-import os
-import sys
 import pathlib
 import subprocess
+import tkinter as tk
+from tkinter import filedialog
 
+root = tk.Tk()
+root.withdraw()
 
 filename = filedialog.askopenfilename()
-
 def open_file_video():
-    filename = filedialog.askopenfilename()
-    if filename:
-        subprocess.run(["python", "main.py", filename])
+    subprocess.run(["python", "main.py", filename])
 
 # image_path = 'videos/test2.mp4'
 protoxtx_path = 'models/MobileNetSSD_deploy.prototxt'
@@ -64,5 +61,7 @@ while True:
 
     cv2.imshow("Detected Objects", image)
     cv2.waitKey(2)
-сap.release()
+
+cap.release()
 cap.destroyAllWindows()
+
